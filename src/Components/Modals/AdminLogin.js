@@ -7,7 +7,7 @@ import { setWithExpiry } from "../../Actions/helperFunctions"
  
 class AdminLogin extends Component {
     onClose = () => {
-        e.preventDefault()
+        // e.preventDefault()
         this.props.showAdminLogin(false)  
     }
 

@@ -39,7 +39,6 @@ class Search extends Component {
         })
         .then((response) => response.json())
         .then((jsonResponse) => {
-            console.log("Booking!!!!", jsonResponse)
             if(jsonResponse.status === "success") {
                 this.props.updateStateWithBookings(jsonResponse.data)
             }

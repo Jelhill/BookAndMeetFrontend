@@ -12,7 +12,8 @@ import AdminLogin from "../Modals/AdminLogin";
 class Landing extends Component {
 
   filterRoom = () => {
-    fetch("http://localhost:3001/searchRoom", {
+    // fetch("http://localhost:3001/searchRoom", {
+    fetch("https://bookandmeet.herokuapp.com/searchRoom", {
       method: "POST", 
       headers: {"Content-type": "application/json"},
       body: JSON.stringify(this.props.signUpFormDetails)

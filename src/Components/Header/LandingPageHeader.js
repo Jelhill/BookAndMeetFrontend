@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import logo from "../../Images/meeting.png"
 import { Link } from "react-router-dom"
 import Login from "../Modals/Login";
-import SignUp from "../Modals/Sgnup"
+import SignUp from "../Modals/Signup"
 import { connect } from "react-redux"
 import { showSignup, showSignIn} from "../../Actions/userActions"
 import SuccessRegisterModal from '../Modals/SuccessRegisterModal';

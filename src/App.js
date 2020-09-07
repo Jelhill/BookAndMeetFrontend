@@ -7,7 +7,7 @@ import BookingForm from './Components/BookingPage/BookingForm';
 import { Fragment } from 'react';
 import UserProfilePage from './Components/ProfilePage/UserProfilePage';
 import Login from './Components/Modals/Login';
-import SignUp from './Components/Modals/Sgnup';
+import SignUp from './Components/Modals/Signup';
 import CompleteSignUp from "./Components/Modals/CompleteSignUp"
 import Error404 from "./Components/404"
 import imageLoader from "./Components/imageLoader"
