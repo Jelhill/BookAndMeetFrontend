@@ -2,9 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getUserBookingDetails } from "../../Actions/bookingActions"
 import { formatDateTime, getWithExpiry } from "../../Actions/helperFunctions"
-import { notificationModal } from "../../Actions/userActions"
+import { notificationModal, successfulBookingModal } from "../../Actions/userActions"
 import { bookingSuccessMessage } from "../../Actions/bookingActions"
 import NotificationModal from '../Modals/NotificationModal'
+import SuccessfulBookingModal from '../Modals/SuccessfulBookingModal'
 
 function BookingPageRightDiv(props) {
     
@@ -23,7 +24,7 @@ function BookingPageRightDiv(props) {
         const body = {checkin, checkout, surname, firstname, email, userId, roomId} 
         if(user === false) {
             props.notificationModal(true)
-        }else{
+        }else {
         fetch("https://bookandmeet.herokuapp.com/bookRoom", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -33,7 +34,8 @@ function BookingPageRightDiv(props) {
           .then((jsonResponse) => {
               console.log(jsonResponse)
               if(jsonResponse.status === "success"){
-                  props.bookingSuccessMessage()   
+                //   props.bookingSuccessMessage("Successful")
+                props.successfulBookingModal(true)   
               }
           })
           .catch((err) => console.log(err))
@@ -47,7 +49,7 @@ function BookingPageRightDiv(props) {
                 <h5>{name}</h5>
                 <label>{category}</label>
             </div>
-           {!props.bookingSuccessStatus.length ? null :
+           {!props.bookingSuccessStatus ? null :
             <div className="bookingSuccessDiv">{props.bookingSuccessStatus}</div>
            }
             <label className="fillMessage">Fill the booking form</label>
@@ -88,6 +90,11 @@ function BookingPageRightDiv(props) {
                 show={props.showNotificationModal}
                 onHide={() => props.notificationModal(false)}
                 />
+            <SuccessfulBookingModal
+                style={{paddingTop: "20px", marginLeft: "100px" }}
+                show={props.showSuccessfulBookingModal}
+                onHide={() => props.showSuccessfulBookingModal(false)}
+                />
         </div>        
     )
  }
@@ -106,6 +113,7 @@ function BookingPageRightDiv(props) {
       firstname: userReducer.userFirstname,
       bookingSuccessStatus: bookingReducer.bookingSuccessStatus,
       showNotificationModal: userReducer.showNotificationModal,
+      showSuccessfulBookingModal: userReducer.successfulBookingModal,
  
     }
 }
@@ -113,8 +121,9 @@ function BookingPageRightDiv(props) {
 const mapDispatchToProps = (dispatch) => {
     return{
         getUserBookingDetails: (values) => dispatch(getUserBookingDetails(values)),
-        bookingSuccessMessage: () => dispatch(bookingSuccessMessage()),
+        bookingSuccessMessage: (message) => dispatch(bookingSuccessMessage(message)),
         notificationModal: (value) => dispatch(notificationModal(value)),
+        successfulBookingModal: (value) => dispatch(successfulBookingModal(value)),
     }
 }
 

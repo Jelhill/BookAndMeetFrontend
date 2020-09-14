@@ -70,11 +70,10 @@ class Search extends Component {
         return (
             <div className="homePageWrapper">
             {!this.props.rooms.length ? 
-                <div className="LoaderDiv"><Loader type="Circles" color="#00BFFF" height={100} width={100} /></div> :
+                <div className="LoaderDiv"><Loader type="ThreeDots" color="#00BFFF" height={100} width={100} /></div> :
                <Fragment>
                 <Header />
                 <SearchFilter />                
-                    <small className="searchNotification">{ this.props.filteredRoom.length ? `${this.props.filteredRoom.length} Rooms Found`  : "No Record Found"}</small>
 
                 <div className="bookingRoomSearchWrapper">
                     {renderingRoom.map((room, index) => {
@@ -84,7 +83,6 @@ class Search extends Component {
                             <div className="boardRoomFeatures">
                                 <Link to={`/aboutRoom/${room.id}`} ><span>{`${room.name}`}</span></Link>
                                 <span className="roomTypeSpan">{`(${room.type})`}</span>
-                                {/* <label className="isAvailable">{room.available ? "Available" : "In use"}</label> */}
                                 <label className="isAvailable">{checkingBookedStatus(this.props.allBookings, room.id)}</label>
                             </div>
                             

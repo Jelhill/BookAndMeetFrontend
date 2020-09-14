@@ -12,8 +12,8 @@ import AdminLogin from "../Modals/AdminLogin";
 class Landing extends Component {
 
   filterRoom = () => {
-    // fetch("http://localhost:3001/searchRoom", {
-    fetch("https://bookandmeet.herokuapp.com/searchRoom", {
+    fetch("http://localhost:3001/searchRoom", {
+    // fetch("https://bookandmeet.herokuapp.com/searchRoom", {
       method: "POST", 
       headers: {"Content-type": "application/json"},
       body: JSON.stringify(this.props.signUpFormDetails)
@@ -24,7 +24,6 @@ class Landing extends Component {
         this.props.updateStateWithSearch(jsonResponse.data.data)
         this.props.history.push("/home")
       }
-
     })
     .catch(err => console.log(err))
   }
@@ -91,6 +90,7 @@ class Landing extends Component {
 const mapStateToProps = (state) => {
   const { userReducer } = state
   const { roomReducer } = state
+  console.log(userReducer.signUpFormDetails)
   return {  
    searchInput: userReducer.searchInput, 
     signUpFormDetails: userReducer.signUpFormDetails,

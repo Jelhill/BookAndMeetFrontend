@@ -45,7 +45,6 @@ class LandingPageHeader extends Component {
             </div>
           :
             <ul className="landingLoginProfile">
-              <li>{this.props.firstname}</li>
               <Link to="userHistory"><li>History</li></Link>
               <Link to="userProfile"><li>My Profile</li></Link>
               <li onClick={this.openLogOutModal}>Logout</li>

@@ -68,8 +68,8 @@ class seachFilter extends Component {
                     <option value="hundredToTwoHundred">101 - 200 seats</option>
                     <option value="aboveTwoHundred">Above 200 seats</option>
                 </select>
-                <input type="date" name="dateSearch" onChange={this.getSearchInput}/>
-                <input type="time" name="timeSearch" onChange={this.getSearchInput}/>
+                {/* <input type="date" name="dateSearch" onChange={this.getSearchInput}/>
+                <input type="time" name="timeSearch" onChange={this.getSearchInput}/> */}
                 <button onClick={this.searchForRooms}>Search</button>
             </div>
         )

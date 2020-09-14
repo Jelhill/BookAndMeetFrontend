@@ -58,7 +58,7 @@ label {
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0px 30px 0 30px;
+  padding: 0px 0 0 30px;
 }
 
 .logoWrapper {
@@ -282,8 +282,8 @@ label {
 }
 
 #login:hover {
-  /* opacity: 0.9; */
-  color: var(--mainPurple);
+  color: var(--mainWhite);
+  background-color: var(--mainPurple);
 }
 .noDecoration {
   text-decoration: none;
@@ -302,6 +302,7 @@ label {
   text-decoration: none;
   cursor: pointer;
 }
+
 .loginmodal {
   position: absolute;
   display: flex;
@@ -811,7 +812,7 @@ background-color: green;
 }
 
 .searchAreaDiv select {
-  width: 120px;
+  width: 150px;
   height: 33px;
   border-radius: 3px;
   margin-right: 10px;
@@ -1675,16 +1676,16 @@ body {
 }
 
 .landingLoginProfile {
-  width: 40%;
+  width: 350px;
 }
 
 .landingLoginProfile li {
   float: left;
-  margin-right: 15px;
+  margin-right: 25px;
   color:var(--mainWhite);
   list-style: none;
   line-height: 65px;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -3711,4 +3712,47 @@ text-align: center;
   width: 100px;
   padding-top: 40vh;
   margin: auto;
+}
+
+.successfullbookingBottom{
+  text-align: center;
+  /* height:5px; */
+}
+.successfullbookingHeader{
+padding:30px;
+font-weight:bold;
+font-size:35px;
+margin-top:50px;
+color:var(--mainWhite);
+}
+.successfullbookingParagraph{
+font-size:20px;
+color: #373F41;
+}
+.successfullbookingLink{
+  background-color: var(--mainPurple);
+  width:30%;
+  height:30px;
+  margin-top:20px;
+  color:var(--mainWhite);
+  border:1px solid var(--mainPurple);
+  border-radius: 4px;
+  padding:0px;
+}
+.exclaim{
+  font-size:80px;
+  color:white;
+  margin-top:20px;
+}
+.shownotificationWrapper{
+/* position: absolute; */
+top:100px;
+right:0px;
+left:200px;
+margin:0 auto;
+height:343px;
+}
+
+.timerDiv {
+  display: flex;
 }

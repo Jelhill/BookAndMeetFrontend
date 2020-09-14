@@ -13,8 +13,10 @@ class Logout extends Component{
       e.preventDefault()
       localStorage.removeItem("token")
       const unprotected = unprotectedRoutes 
-      const currentRoute = this.props.history.location.pathname;
-      if(unprotected.includes(currentRoute)){
+      const pathName = this.props.history.location.pathname
+      const routeIndexOne = `/${pathName.split("/")[1]}`
+      const currentRoute = `/${pathName.split("/")[1]}/${pathName.split("/")[2]}`;
+      if(unprotected.includes(routeIndexOne)){
         window.location = `${currentRoute}`
       }else{
         window.location = "/home"

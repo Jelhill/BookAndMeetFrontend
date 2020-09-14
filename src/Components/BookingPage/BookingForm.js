@@ -8,6 +8,8 @@ import { updateStateWithAPI, updateStateWithUserInfo } from "../../Actions/userA
 import { updateStateWithRoomInfo } from "../../Actions/roomActions"
 import { getWithExpiry } from "../../Actions/helperFunctions"
 import NotificationModal from '../Modals/NotificationModal'
+import Loader from 'react-loader-spinner'
+
 
 
 
@@ -43,7 +45,7 @@ const BookingForm = (props) => {
                 <Header />
                 <div className="aboutRoomNav">
                     <ul>
-                        <Link to="home"><li>Meeting Rooms</li></Link>
+                        <Link to="/home"><li>Meeting Rooms</li></Link>
                         <span><i className="fa fa-greater-than"></i></span>
                         <Link to={"/aboutRoom"}><li>Booking Page</li></Link>
                     </ul>
@@ -68,10 +70,12 @@ const BookingForm = (props) => {
 const mapStateToProps = (state) => {
     const { userReducer } = state
     const { roomReducer } = state
+    const { bookingReducer } = state
     return {
       renderPage: userReducer.renderPage,
       roomImage: roomReducer.imageurl,
       roomName: roomReducer.imageurl,
+      allBookings: bookingReducer.allBookings
     }
 }
   
