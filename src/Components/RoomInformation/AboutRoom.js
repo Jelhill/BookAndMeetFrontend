@@ -8,7 +8,6 @@ import { useEffect } from 'react'
 import { updateStateWithRoomInfo } from "../../Actions/roomActions"
 import { updateStateWithBookings, updateCountDownTimer } from "../../Actions/bookingActions"
 import { checkingBookedStatus, countDown } from "../../Actions/helperFunctions"
-import Loader from 'react-loader-spinner'
 
  
 function AboutRoom (props) {
@@ -23,7 +22,7 @@ function AboutRoom (props) {
         .then((response) => response.json())
         .then((jsonResponse) => {
             if(jsonResponse.status === "success") {
-                console.log(jsonResponse)
+                console.log("bookings", jsonResponse)
                 props.updateStateWithBookings(jsonResponse.data)
             }
         }).catch((error) => {
@@ -52,9 +51,12 @@ function AboutRoom (props) {
         }, 1000);
     })
 
-    useEffect(() => {
-        Promise.all([getRoomDetails(), getBookings()])
-    },[])
+    // useEffect(() => {
+    //     Promise.all([getRoomDetails(), getBookings()])
+    // },[])
+    useEffect(getRoomDetails)
+
+    useEffect(getBookings, [])
 
         // if (!props.allBookings.length) {
         //     return <div className="LoaderDiv"><Loader type="ThreeDots" color="#00BFFF" height={100} width={100} /></div>

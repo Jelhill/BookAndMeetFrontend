@@ -18,7 +18,7 @@ const Header = (props) => {
         props.updateStateForHeader(response)
     })
 
-    const {isLoggedIn, firstname} = props
+    const {isLoggedIn} = props
     return (
         <div className="headerPurpleDiv">
             <div className="headerIconDiv">

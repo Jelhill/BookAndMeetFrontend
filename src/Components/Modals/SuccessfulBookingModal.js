@@ -34,13 +34,14 @@ function SuccessfulBookingModal(props) {
   
   
 const mapStateToProps = (state) => {
-	const { userReducer } = state
+  const { userReducer } = state
+  console.log(userReducer.successfulBookingModal);
 	return {	
-        showSuccessfulBookingModal: userReducer.SuccessfulBookingModal,
-        showSuccessfulBookingModal: userReducer.showSuccessfulBookingModal,
+        showSuccessfulBookingModal: userReducer.successfulBookingModal,
+        // showSuccessfulBookingModal: userReducer.showSuccessfulBookingModal,
 
 	}
-  }
+}
 
   const mapDispatchToProps = (dispatch) => {
     return {	

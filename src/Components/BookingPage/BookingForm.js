@@ -8,7 +8,6 @@ import { updateStateWithAPI, updateStateWithUserInfo } from "../../Actions/userA
 import { updateStateWithRoomInfo } from "../../Actions/roomActions"
 import { getWithExpiry } from "../../Actions/helperFunctions"
 import NotificationModal from '../Modals/NotificationModal'
-import Loader from 'react-loader-spinner'
 
 
 

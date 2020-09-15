@@ -22,7 +22,8 @@ function BookingPageRightDiv(props) {
         const checkin = formatDateTime(checkinDate, checkinTime)
         const checkout = formatDateTime(checkoutDate, checkoutTime)
         const body = {checkin, checkout, surname, firstname, email, userId, roomId} 
-        if(user === false) {
+
+        if(user === false || user.token === "undefined") {    
             props.notificationModal(true)
         }else {
         fetch("https://bookandmeet.herokuapp.com/bookRoom", {
@@ -103,6 +104,7 @@ function BookingPageRightDiv(props) {
     const { userReducer } = state
     const { roomReducer } = state
     const {bookingReducer } = state
+    console.log(userReducer.successfulBookingModal);
     return {
       renderPage: userReducer.renderPage,
       imageurl: roomReducer.currentRoom.imageurl,
