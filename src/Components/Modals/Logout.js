@@ -16,11 +16,11 @@ class Logout extends Component{
       const pathName = this.props.history.location.pathname
       const routeIndexOne = `/${pathName.split("/")[1]}`
       // const currentRoute = `/${pathName.split("/")[1]}/${pathName.split("/")[2]}`;
-      if(unprotected.includes(routeIndexOne)){
-        // window.location = `${currentRoute}`
-        window.location = ``
-      }else{
-        window.location = "/home"
+      if(!unprotected.includes(routeIndexOne)){
+        // window.location = `${currentRoute}`        
+        this.props.history.push("/home")
+        // window.location = ``
+      // }else{
       }
       this.onClose()
     }
