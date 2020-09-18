@@ -277,13 +277,13 @@ label {
   color: navy;
   margin-right: 20px;
   border-radius: 5px;
+  
   cursor: pointer;
   
 }
 
 #login:hover {
-  color: var(--mainWhite);
-  background-color: var(--mainPurple);
+  opacity: 0.7;
 }
 .noDecoration {
   text-decoration: none;
@@ -743,13 +743,30 @@ padding:5px;
   border-radius: 5px;
   border: none;
   margin-right: 5px;
-  width: 165px;
+  width: 200px;
   padding-left: 10px;
   font-size: 15px;
   color: gray;
   font-weight: bold;
 }
 
+.seeAllRoom{
+  background-color: var(--mainGreen);
+  color: var(--mainWhite);
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 5px;
+  width: 200px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+.seeAllRoom:hover {
+  opacity: 0.7;
+}
 .filterDateTime{
   height: 40px;
   border-radius: 3px;
@@ -757,7 +774,7 @@ padding:5px;
   margin-right: 5px;
   width: 200px;
   padding-left: 10px;
-  color: gray;
+  color: var(--mainWhite);
   font-weight: bold;
 }
 

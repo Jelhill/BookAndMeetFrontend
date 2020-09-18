@@ -7,6 +7,7 @@ import Login from './Modals/Login'
 import { getWithExpiry } from "../Actions/helperFunctions"
 import Logout from './Modals/Logout'
 import SuccessRegisterModal from '../Components/Modals/SuccessRegisterModal'
+import Signup from '../Components/Modals/Signup'
 
 const Header = (props) => {    
     const handleSignIn = () => props.showSignin(true)
@@ -40,7 +41,7 @@ const Header = (props) => {
                     <li><Link to="#" className="noDecoration" onClick={handleSignIn}>Login</Link></li>
                     <li><Link to="#" className="noDecoration" onClick={openSignUpModal}>Signup</Link></li>
                     <Login />  
-                    {/* <Signup /> */}
+                    <Signup />
                     <SuccessRegisterModal/>
                 </ul> 
                 }
@@ -52,6 +53,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     const { userReducer } = state
+    console.log(userReducer.showSignUp)
     return {
         isLoggedIn: userReducer.isLoggedIn,
         firstname: userReducer.userFirstname,

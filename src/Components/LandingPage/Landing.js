@@ -5,15 +5,20 @@ import { getSignupInputs} from "../../Actions/userActions"
 import { updateStateWithSearch} from "../../Actions/roomActions"
 import '../../App.css';
 import LandingPageHeader from "../Header/LandingPageHeader";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import AdminLogin from "../Modals/AdminLogin";
 
 
 class Landing extends Component {
 
+  openHomePage = (e) => {
+    e.preventDefault()
+    this.props.history.push("/home")
+  }
+
   filterRoom = () => {
-    fetch("http://localhost:3001/searchRoom", {
-    // fetch("https://bookandmeet.herokuapp.com/searchRoom", {
+    // fetch("http://localhost:3001/searchRoom", {
+    fetch("https://bookandmeet.herokuapp.com/searchRoom", {
       method: "POST", 
       headers: {"Content-type": "application/json"},
       body: JSON.stringify(this.props.signUpFormDetails)
@@ -70,9 +75,10 @@ class Landing extends Component {
                     <option value="aboveTwoHundred">Below 1000 seats</option>
                 </select>
 
-                <input type="date" name="searchDate" className="filterDateTime" id="datePicker" onChange={this.getUsersInput}/>
-                <input type="time" name="searchTime" className="filterDateTime" id="datePicker" onChange={this.getUsersInput}/>
+                {/* <input type="date" name="searchDate" className="filterDateTime" id="datePicker" onChange={this.getUsersInput}/> */}
+                {/* <input type="time" name="searchTime" className="filterDateTime" id="datePicker" onChange={this.getUsersInput}/> */}
                 <button className="filterButton" onClick={this.filterRoom}>Search</button>
+                <button className="seeAllRoom" onClick={this.openHomePage}>See All rooms</button>
               </div>
             
           </div>
@@ -111,4 +117,4 @@ const mapDispatchToProps = (dispatch) => {
     updateStateWithSearch: (values) => dispatch(updateStateWithSearch(values)),   
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Landing));
