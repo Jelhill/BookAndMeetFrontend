@@ -96,7 +96,6 @@ class Landing extends Component {
 const mapStateToProps = (state) => {
   const { userReducer } = state
   const { roomReducer } = state
-  console.log(userReducer.signUpFormDetails)
   return {  
    searchInput: userReducer.searchInput, 
     signUpFormDetails: userReducer.signUpFormDetails,

@@ -797,7 +797,9 @@ padding:5px;
   border: none;
   color: #FFF;
   width: 130px;
-  font-size: 18px;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  font-family: var(--Roboto);
 }
 
 .filterButton:hover{
@@ -3722,6 +3724,14 @@ text-align: center;
   font-family: var(--Roboto);
 }
 
+.errorMessageDiv {
+  background-color: #fce4e4;
+  width: 80%;
+  margin: auto;
+  height: 40px;
+  padding: 5px;
+  text-align: center;
+}
 .modal-style {
   height: 200px;
 }
@@ -3757,6 +3767,11 @@ color: #373F41;
   border:1px solid var(--mainPurple);
   border-radius: 4px;
   padding:0px;
+  margin-left: 10px;
+}
+
+.successfullbookingLink:hover {
+  opacity: 0.7;
 }
 .exclaim{
   font-size:80px;
@@ -3764,14 +3779,15 @@ color: #373F41;
   margin-top:20px;
 }
 .shownotificationWrapper{
-/* position: absolute; */
-top:100px;
-right:0px;
-left:200px;
-margin:0 auto;
-height:343px;
+  top: 100px;
+  height:350px; 
 }
 
 .timerDiv {
   display: flex;
+}
+
+.linkSignup {
+  cursor: pointer;
+  margin-left: 10px;
 }

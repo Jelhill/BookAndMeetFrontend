@@ -14,7 +14,7 @@ import {
     SHOW_ADMIN_SIGNIN,
     UPDATE_STATE_WITH_USER_INFO,
     SHOW_NOTIFICATION_MODAL,
-    SHOW_SUCCESSFUL_BOOKING_MODAL,
+    SHOW_SUCCESSFUL_BOOKING_MODAL, SHOW_ERROR_MESSAGE
  } from "../Actions/userActions"
 
 const initialState = {
@@ -36,6 +36,7 @@ const initialState = {
     populateFeedbackPage:[],
     showNotificationModal: false,
     successfulBookingModal: false,
+    errorMessage: "",
 
     
 }   
@@ -100,14 +101,15 @@ const userReducer = (state = initialState, action) => {
     }
 
     if(action.type === SHOW_NOTIFICATION_MODAL) {
-       console.log(action.value)
        newState.showNotificationModal = action.value
     }
 
     if(action.type === SHOW_SUCCESSFUL_BOOKING_MODAL) {
-       console.log(action.value)
        newState.successfulBookingModal = action.value
 
+    }
+    if(action.type === SHOW_ERROR_MESSAGE) {
+       newState.errorMessage = action.value
     }
 
     return newState

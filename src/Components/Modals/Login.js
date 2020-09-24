@@ -1,23 +1,37 @@
 import React, {Component} from 'react';
 import { Link, withRouter } from "react-router-dom"
 import { connect } from 'react-redux';
-import { showSignIn, getSignupInputs } from "../../Actions/userActions"
+import { showSignIn, getSignupInputs, showSignup } from "../../Actions/userActions"
+import { errorMessage } from "../../Actions/userActions"
 import { setWithExpiry } from "../../Actions/helperFunctions"
+import Signup from './Signup';
 
 
 class Login extends Component{  
 
+    openSignUpModal = () => {
+      this.props.showSignin(false)
+      this.props.showSignup(true)
+    }
+    
     onClose = () => {
-        // e.preventDefault()
         this.props.showSignin(false)  
+        this.props.errorMessage("")
     }
     
     getUserInput = (e) => {
       this.props.getSignupInputs({[e.target.name]: e.target.value})
     }
     
-    handleLogin = async (e) => {
+    handleLogin = async (e) => {  
       e.preventDefault()
+      this.props.errorMessage("")
+      console.log(this.props.signUpFormDetails);
+      if(!this.props.signUpFormDetails.email || !this.props.signUpFormDetails.password ) {
+        let message = "All fields are required"
+        this.props.errorMessage(message)
+        return 
+      }
         fetch(`https://bookandmeet.herokuapp.com/login`, {
         // fetch(`http://localhost:3001/login`, {
         method: "POST",
@@ -27,6 +41,7 @@ class Login extends Component{
       .then(response => response.json())
       .then((jsonResponse) => {
         console.log(jsonResponse)
+
         if(jsonResponse.message === "success" && jsonResponse.token !== null){
           const currentRoute = this.props.history.location.pathname;
           setWithExpiry("token", jsonResponse.token, 7200000, jsonResponse.payload)  
@@ -37,7 +52,9 @@ class Login extends Component{
           }  
           // window.location.reload(true)
           this.onClose()               
-        }       
+        }else{
+          this.props.errorMessage(jsonResponse.message)
+        }      
       })
       .catch((err) => console.log(err))
     }
@@ -59,6 +76,9 @@ class Login extends Component{
                       </div>
                       <small></small>
                       <div className="modalContent">
+                        {!this.props.errorMessageDisplay ? null :
+                          <div className="errorMessageDiv">{this.props.errorMessageDisplay}</div>      
+                        }                
                       <form>
                        <div className="formDiv">
                          <div className="flexInput">
@@ -93,12 +113,12 @@ class Login extends Component{
                          <button 
                             onClick={this.handleLogin}
                             className="form-control signupsubmit">
-                            Login
+                             Login
                           </button>
                        </div>
                        </form>
-                       <p className="loginparagraph">Not yet registered <Link to="#"><span>Sign up</span></Link></p>
-
+                       <p className="loginparagraph">Not yet registered<span className="linkSignup" onClick={this.openSignUpModal} >Sign up</span></p>
+                       <Signup />
                       </div>
                       </div>
                   </div>
@@ -110,11 +130,11 @@ class Login extends Component{
 
 const mapStateToProps = (state) => {
     const { userReducer } = state
-    // const now = new Date()
-    //     console.log("Login State", now.getTime(), userReducer.loggedInUserInfo)
     return {
       showSignIn: userReducer.showSignIn,
       signUpFormDetails: userReducer.signUpFormDetails,
+      errorMessageDisplay: userReducer.errorMessage,
+      showSignUp: userReducer.showSignup
     }
 }
   
@@ -122,6 +142,8 @@ const mapStateToProps = (state) => {
     return {
       showSignin: (values) => dispatch(showSignIn(values)),
       getSignupInputs: (values) => dispatch(getSignupInputs(values)),
+      errorMessage: (values) => dispatch(errorMessage(values)),
+      showSignup: (values) => dispatch(showSignup(values)),
     }
   }
   

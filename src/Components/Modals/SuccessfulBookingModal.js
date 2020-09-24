@@ -35,7 +35,6 @@ function SuccessfulBookingModal(props) {
   
 const mapStateToProps = (state) => {
   const { userReducer } = state
-  console.log(userReducer.successfulBookingModal);
 	return {	
         showSuccessfulBookingModal: userReducer.successfulBookingModal,
         // showSuccessfulBookingModal: userReducer.showSuccessfulBookingModal,

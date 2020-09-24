@@ -76,8 +76,8 @@ function BookingPageRightDiv(props) {
             </div>    
             
             <div className="checkInDiv">
-                <input type="text" name="surname" placeholder="Surname" onChange={getBookingInputs}/>                    
                 <input type="text" name="firstname" placeholder="Firstname" onChange={getBookingInputs}/>                     
+                <input type="text" name="surname" placeholder="Surname" onChange={getBookingInputs}/>                    
             </div>  
             <div className="checkInDiv2">
                 <input type="email" name="email" placeholder="Email" onChange={getBookingInputs}/>
@@ -104,7 +104,6 @@ function BookingPageRightDiv(props) {
     const { userReducer } = state
     const { roomReducer } = state
     const {bookingReducer } = state
-    console.log(userReducer.successfulBookingModal);
     return {
       renderPage: userReducer.renderPage,
       imageurl: roomReducer.currentRoom.imageurl,

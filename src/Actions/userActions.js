@@ -16,6 +16,7 @@ export const UPDATE_STATE_WITH_USER_INFO = "UPDATE_STATE_WITH_USER_INFO"
 export const GET_ADMINFORM_INPUT = " GET_ADMINFORM_INPUT"
 export const SHOW_NOTIFICATION_MODAL = " SHOW_NOTIFICATION_MODAL"
 export const SHOW_SUCCESSFUL_BOOKING_MODAL = " SHOW_SUCCESSFUL_BOOKING_MODAL"
+export const SHOW_ERROR_MESSAGE = " SHOW_ERROR_MESSAGE"
 
 
 
@@ -128,6 +129,12 @@ export const notificationModal = (value) => {
 export const successfulBookingModal = (value) => {
     return{
         type: SHOW_SUCCESSFUL_BOOKING_MODAL,
+        value
+    }
+}
+export const errorMessage = (value) => {
+    return{
+        type: SHOW_ERROR_MESSAGE,
         value
     }
 }

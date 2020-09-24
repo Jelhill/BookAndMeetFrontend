@@ -53,7 +53,6 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     const { userReducer } = state
-    console.log(userReducer.showSignUp)
     return {
         isLoggedIn: userReducer.isLoggedIn,
         firstname: userReducer.userFirstname,
