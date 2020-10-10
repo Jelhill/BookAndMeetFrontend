@@ -44,6 +44,7 @@ class Login extends Component{
 
         if(jsonResponse.message === "success" && jsonResponse.token !== null){
           const currentRoute = this.props.history.location.pathname;
+          localStorage.setItem("user", JSON.stringify(jsonResponse.response))
           setWithExpiry("token", jsonResponse.token, 7200000, jsonResponse.payload)  
           if(currentRoute === "/"){
             this.props.history.push("home")

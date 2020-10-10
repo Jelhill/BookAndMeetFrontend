@@ -24,7 +24,7 @@ function SuccessfulBookingModal(props) {
       <h3 className="successfullbookingHeader"><i className="fa fa-exclamation exclaim"></i></h3>
       </Modal.Title>
       <Modal.Body className = "successfullbookingBottom">
-      <p className="successfullbookingParagraph">Booked Successful</p>
+      <p className="successfullbookingParagraph">Success</p>
       <button onClick={onHide} className="successfullbookingLink">Close</button>
       </Modal.Body>
   </Modal>

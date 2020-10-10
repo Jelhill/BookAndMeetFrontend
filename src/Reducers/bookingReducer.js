@@ -2,7 +2,8 @@ import { chartData } from '../Data/data';
 import { GET_USER_BOOKING_DETAILS, 
     BOOKING_SUCCESS_MESSAGE, 
     UPDATE_STATE_WITH_BOOKING,
-    UPDATE_STATE_WITH_COUNTDOWN_TIMER
+    UPDATE_STATE_WITH_COUNTDOWN_TIMER,
+    UPDATE_STATE_WITH_USER_BOOKINGS
 } from "../Actions/bookingActions"
 
 const iniialState = {
@@ -10,7 +11,8 @@ const iniialState = {
     userBookingDetails: {},
     bookingSuccessStatus: "",
     allBookings: [],
-    countDownTime: null
+    countDownTime: null,
+    allUserBookings: []
 }
 
 const bookingReducer = (state = iniialState, action) => {
@@ -30,6 +32,11 @@ const bookingReducer = (state = iniialState, action) => {
 
     if(action.type === UPDATE_STATE_WITH_COUNTDOWN_TIMER){
         newState.countDownTime = action.timer
+    }
+
+    if(action.type === UPDATE_STATE_WITH_USER_BOOKINGS){
+        console.log(action.values);
+        newState.allUserBookings = action.values
     }
 
     return newState

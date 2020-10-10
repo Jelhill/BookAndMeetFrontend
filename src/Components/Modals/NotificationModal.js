@@ -27,7 +27,7 @@ function NotificationModal(props) {
         <Modal.Body className = "successfullbookingBottom">
         <p className="successfullbookingParagraph">Please login to book room</p>
         <button onClick={handleSignIn} className="successfullbookingLink">Login</button>
-        <button onClick={props.onHide} className="successfullbookingLink">Close</button>
+        {/* <button onClick={props.onHide} className="successfullbookingLink">Close</button> */}
         </Modal.Body>
       </Modal>
       <Login />

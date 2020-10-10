@@ -65,7 +65,6 @@ const roomReducer = (state = initialState, action) => {
 
     if(action.type === UPDATE_STATE_WITH_ROOM_INFO) {
         // Object.assign(newState.roomInfo, action.values)
-
         newState.capacity = action.values.capacity
         newState.waterDispenser = action.values.haswaterdispenser
         newState.airCondition = action.values.hasaircondition
