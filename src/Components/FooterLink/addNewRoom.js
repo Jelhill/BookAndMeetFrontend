@@ -17,7 +17,6 @@ const AddNewRoom = (props) =>  {
     const addNewRoom = async (e) => {
         e.preventDefault()
         const data = new FormData()
-        console.log("Room Image", props.roomImage.image)
         data.append("file", props.roomImage.image[0])
         data.append("upload_preset", "jelhill")
         props.setLoading(true)
@@ -28,7 +27,6 @@ const AddNewRoom = (props) =>  {
         const jsonRes = await res.json()
         const {type, location, capacity, name, available, hasProjector, hasAirCondition, hasWaterDispenser, hasWhiteBoard} = props.addRoomFormInputs
         const secure_url = jsonRes.secure_url
-        console.log(secure_url);
         const body = {type, location, capacity, name, available, hasProjector, hasAirCondition, hasWaterDispenser, hasWhiteBoard, secure_url}
         await fetch("https://bookandmeet.herokuapp.com/addRoom",{
             method: "POST",
