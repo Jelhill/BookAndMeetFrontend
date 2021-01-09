@@ -21,7 +21,7 @@ import Bookings from './Components/FooterLink/Bookings';
 import FeedbackForm from './Components/FeedbackForm';
 import History from "./Components/ProfilePage/History"
 import AdminHeader from './Components/AdminHeader';
-,import AddAdminForm from './Components/FooterLink/AddAdminForm';
+import AddAdminForm from './Components/FooterLink/AddAdminForm';
 import EditRoomForm from './Components/FooterLink/EditRoomForm';
 import AdminLogin from './Components/Modals/AdminLogin';
 
